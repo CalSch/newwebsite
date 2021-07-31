@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Cal's Website</title>
+
+		<!-- BootStrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+
+		<link rel="shortcut icon" type="image/png" href="/img/logo.png"/>
+
+		<style>
+			.get-data {
+				border: solid gray 1px;
+				border-radius: 2px;
+				min-height: 200px;
+				max-height: 200px;
+				overflow: scroll;
+			}
+			.input-field {
+				border: solid gray 1px;
+				border-radius: 2px;
+			}
+		</style>
+	</head>
+  <body>
+		
+		<!-- Navbar -->
+		<div id="nav-placeholder"></div>
+
+		<div class="container-fluid" style="margin-top:80px">
+			<div class="container-fluid p-3 my-3 bg-primary text-white">
+				<h1>WS Client</h1>
+				<p>This lets you connect to any WebSocket client. <br>
+				Learn more about WebScokets <a href="https://javascript.info/websocket">here</a>.</p>
+			</div>
+			<div class="container">
+				<button onclick="connect()" type="button" class="btn btn-primary">Connect</button>
+				<br>
+				<pre class="get-data" id="get-data"></pre>
+				<pre class="input-field" id="input-field" contenteditable="true"></pre>
+				<script>
+					function connect() {
+						let url=prompt("url");
+						let ws = new WebSocket("wss://"+url);
+						let inputField=document.querySelector("#input-field");
+						let log=document.querySelector("#get-data");
+						log.innerText+=`Trying to connect to "wss://${url}".\n`;
+
+						inputField.addEventListener('keydown', function(e){
+							console.log(e.keyCode);
+							if (e.keyCode === 13) {
+								e.preventDefault();
+								console.log("Sending data: "+inputField.innerText)
+								ws.send(inputField.innerText);
+								inputField.innerText="";
+							}
+						}, true);
+
+						ws.onopen=function() {
+							console.log("connected")
+							log.innerText+="Connected!\n";
+						}
+
+						ws.onmessage=function(e) {
+							console.log("got message: "+e.data);
+							log.innerText+=e.data+"\n";
+						}
+
+						ws.onclose=function() {
+							console.log("closed");
+							log.innerText+="Closed\n";
+						}
+					}
+				</script>
+			</div>
+		</div>
+
+    <script src="/script.js"></script>
+  </body>
+</html>

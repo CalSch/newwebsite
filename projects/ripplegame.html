@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Cal's Website</title>
+
+		<!-- BootStrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+
+		<link rel="shortcut icon" type="image/png" href="/img/logo.png"/>
+
+		<style>
+canvas {
+	border-style: ridge;
+	border-radius: 5px;
+}
+	</style>
+	</head>
+  <body>
+		
+		<!-- Navbar -->
+		<div id="nav-placeholder"></div>
+
+		<div class="container-fluid" style="margin-top:80px">
+			<div class="container-fluid p-3 my-3 bg-primary text-white">
+				<h1>Ripple Game</h1>
+				<p>A ripple simulation thing. (It's not very good though.)</p>
+			</div>
+			<div class="container">
+				<canvas id="gameScreen"></canvas>
+				<script>
+const screenWidth=125;
+const screenHeight=125;
+const frameRate=60;
+var running=true;
+var frame=0;
+var deltaTime=0; // The number of milliseconds since the last frame
+var lastFrameTime=+new Date(); // Millisecond value of the last frame (used for getting delta time)
+var clicked=false;
+
+var ripples = [
+	{x: 10, y: 10, t: 0}
+];
+
+var c = document.getElementById("gameScreen");
+c.height=screenHeight;
+c.width=screenWidth;
+
+c.addEventListener('mousemove', function(event) {
+	if (!clicked) return;
+	let pos = getMousePosition(c,event);
+	ripples.push({ x: pos.x, y: pos.y, t: 0});
+})
+c.addEventListener('mousedown', function(event) {
+	clicked=true;
+})
+c.addEventListener('mouseup', function(event) {
+	clicked=false;
+})
+
+var ctx = c.getContext("2d");
+
+function draw() { // Function to draw the player
+	//Clear screen
+	ctx.fillStyle = "#17114a";
+	ctx.fillRect(0,0,screenWidth,screenHeight);
+
+	ripples.forEach(function(item) {
+		ctx.strokeStyle = "rgba(0,175,255,255)";
+		ctx.lineWidth = 2.5;
+		ctx.beginPath();
+		ctx.arc(item.x, item.y, item.t, 0, 2 * Math.PI);
+		ctx.stroke();
+	});
+}
+function update() {
+	ripples.forEach(function(item) {
+		item.t+=1.5;
+		if (item.t > 160) {
+			ripples.pop(ripples.indexOf(item));
+		}
+	});
+}
+
+var interval = setInterval(function() {
+	if (!running) return;
+	deltaTime=new Date()-lastFrameTime;
+	frame++;
+	lastFrameTime=+new Date();
+	update();
+	draw();
+}, 1000/frameRate);
+
+function getMousePosition(canvas, event) { 
+		let rect = canvas.getBoundingClientRect(); 
+		let x = event.clientX - rect.left; 
+		let y = event.clientY - rect.top; 
+		
+		return {x, y};
+}
+				</script>
+			</div>
+		</div>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
