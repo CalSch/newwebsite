@@ -28,9 +28,26 @@ a.nav-link {
 	box-shadow: 0 0 36px rgba(10, 23, 27, 0.51);
 }
 
-code {
+code, pre {
 	padding: 3px;
 	font-size: inherit;
 	background-color: rgba(0, 0, 0, 0.051);
 	border-radius: 4px;
+}
+
+div.content {
+	background-color: #f0f0f0;
+	background-image: linear-gradient(#f0f0f0, #ebebeb, #ebebeb, #ebebeb, #bebebe);
+	border-color: #6d6d6d;
+	border-width: 1px;
+	border-radius: 3px;
+	border-style: solid;
+	font-size: 14pt;
+}
+
+p.note {
+	border: #f7d40e solid 1px;
+	border-radius: 5px;
+	background-color: #f8e473;
+	padding: 3px;
 }
