@@ -31,7 +31,7 @@
 
 		<div class="container-fluid" style="margin-top:80px">
 			<div class="title">
-				<h1>Welcome. hi</h1>
+				<h1>Welcome.</h1>
 				<p>This is my website.</p>
 			</div>
 			<div class="container content-2">
