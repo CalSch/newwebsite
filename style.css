@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
 
 body {
 	/*
@@ -35,6 +36,18 @@ code, pre {
 	border-radius: 4px;
 }
 
+
+
+div.title {
+	color: #fff;
+	padding: 1rem;
+	background-color: #007bff;
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 30px;
+}
+
 div.content {
 	background-color: #f0f0f0;
 	background-image: linear-gradient(#f0f0f0, #ebebeb, #ebebeb, #ebebeb, #bebebe);
@@ -43,11 +56,42 @@ div.content {
 	border-radius: 3px;
 	border-style: solid;
 	font-size: 14pt;
+	margin-bottom: 100px;
 }
+
+
 
 p.note {
 	border: #f7d40e solid 1px;
 	border-radius: 5px;
 	background-color: #f8e473;
 	padding: 3px;
+}
+
+kbd {
+	text-shadow: 0px 0px 5px white;
+	box-shadow: 1px 1px #40474e, 2px 2px #40474e;
+}
+
+code, pre, kbd {
+	font-family: Fira Mono;
+}
+
+div.my-stuff {
+	border: 3px grey inset;
+	border-radius: 3px;
+	width: 95%;
+	
+}
+
+div.content-2 {
+	margin-bottom: 100px;
+}
+
+div.noscript {
+	margin: 10px;
+	padding: 5px;
+	border: 2px crimson solid;
+	border-radius: 4px;
+	background-color: rgb(255, 150, 171);
 }
