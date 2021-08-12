@@ -1,20 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+:root {
+	--main-color: #007bff;
+}
 
 body {
 	/*
 	background-image: url("img/binary.jpg");
 	background-attachment: fixed;
 	*/
-	font-family: 'Roboto Slab', serif;
+	font-family: 'Nunito', sans-serif;
+
 }
 
 a {
-	color: rgb(245, 56, 31);
+	color: rgb(49, 245, 31);
 	text-decoration: underline;
 }
 a:visited {
-	color: rgb(184, 21, 0);
+	color: rgb(0, 153, 102);
 	text-decoration: underline;
 }
 a.nav-link {
@@ -36,16 +43,19 @@ code, pre {
 	border-radius: 4px;
 }
 
-
+h1,h3 {
+	font-family: "Raleway", sans-serif;
+}
 
 div.title {
 	color: #fff;
 	padding: 1rem;
-	background-color: #007bff;
+	background-color: var(--main-color);
 	width: 100%;
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom: 30px;
+	border-radius: 10px;
 }
 
 div.content {
@@ -78,14 +88,31 @@ code, pre, kbd {
 }
 
 div.my-stuff {
-	border: 3px grey inset;
-	border-radius: 3px;
+	border: 3px var(--main-color) solid;
+	border-radius: 6px;
+	background-color: var(--main-color);
 	width: 95%;
-	
+	color: white;
+	padding: 10px;
 }
 
 div.content-2 {
 	margin-bottom: 100px;
+}
+.c-nav {
+	background-color: var(--main-color);
+	border-radius: 0px 0px 10px 10px;
+}
+.nav-link {
+	color: rgba(255,255,255,1) !important;
+}
+.nav-link:hover {
+	text-shadow: 0px 0px 2px white;
+	background-color: rgba(0, 0, 0, 0.13);
+	border-radius: 5px;
+}
+.navbar-toggler {
+	border-color: rgba(0, 0, 0, 0) !important;
 }
 
 div.noscript {

@@ -37,24 +37,26 @@
 			<div class="container content-2">
 				<h1>Check out my stuff!</h1><br>
 
-				<div class="row">
-
-					<div class="col-md-4 my-stuff">
-						<h3>My Latest Blog: </h3>
-						<p><a href="/blog/1-nodejs-webserver.html">How to make a webserver in Node.js</a></p>
-					</div>
-					<div class="col-md-4 my-stuff">
-						<h3>My Pictures:</h3>
-						<p>Internet Icon: <img src="/img/WebIcon.svg" width="30px" /><br>
-						Website Logo: <img src="/img/logo.svg" width="30px" /><br>
-						<a href="/pictures/">More</a>
-						
-						</p>
-					</div>
-
-					<div class="col-md-4 my-stuff">
-					</div>
-
+				<div class="my-stuff">
+					<h3>My Latest Blog: </h3>
+					<p><a href="/blog/1-nodejs-webserver.html">How to make a webserver in Node.js</a>
+						<a href="/blog/">More </a>
+					</p>
+				</div>
+				<br>
+				<div class="my-stuff">
+					<h3>My Pictures:</h3>
+					<p>Internet Icon: <img src="/img/WebIcon.svg" width="30px" /><br>
+					Website Logo: <img src="/img/logo.svg" width="30px" /><br>
+					<a href="/pictures/">More</a>
+					</p>
+				</div>
+				<br>
+				<div class="my-stuff">
+					<h3>My Projects:</h3>
+					<p><a href="/projects/wsclient.html">WSClient</a><br>
+						<a href="/projects/">More</a>
+					</p>
 				</div>
 			</div>
 		</div>
