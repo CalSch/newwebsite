@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&display=swap');*/
 
 :root {
 	--main-color: #007bff;
@@ -16,12 +17,14 @@ body {
 
 }
 
-a {
-	color: rgb(49, 245, 31);
+div.title a,
+div.my-stuff a {
+	color: rgb(255, 223, 223);
 	text-decoration: underline;
 }
-a:visited {
-	color: rgb(0, 153, 102);
+div.title a:visited,
+div.my-stuff a:visited {
+	color: rgb(180, 180, 180);
 	text-decoration: underline;
 }
 a.nav-link {
@@ -52,13 +55,12 @@ div.title {
 	padding: 1rem;
 	background-color: var(--main-color);
 	width: 100%;
-	margin-right: auto;
-	margin-left: auto;
 	margin-bottom: 30px;
 	border-radius: 10px;
 }
 
 div.content {
+
 	background-color: #f0f0f0;
 	background-image: linear-gradient(#f0f0f0, #ebebeb, #ebebeb, #ebebeb, #bebebe);
 	border-color: #6d6d6d;
@@ -88,20 +90,24 @@ code, pre, kbd {
 }
 
 div.my-stuff {
-	border: 3px var(--main-color) solid;
-	border-radius: 6px;
 	background-color: var(--main-color);
-	width: 95%;
+	width: 100%;
 	color: white;
 	padding: 10px;
 }
 
 div.content-2 {
 	margin-bottom: 100px;
+	padding: 0px;
+}
+div.main {
+	margin-top: 80px;
 }
 .c-nav {
-	background-color: var(--main-color);
+	background: rgb(0,123,255);
+	background: linear-gradient(127deg, rgba(60,174,255,1) 0%, rgba(0,123,255,1) 5%, rgba(0,59,255,1) 84%, rgba(0,2,161,1) 100%);
 	border-radius: 0px 0px 10px 10px;
+	height: 50px;
 }
 .nav-link {
 	color: rgba(255,255,255,1) !important;

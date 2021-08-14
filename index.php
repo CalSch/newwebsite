@@ -29,13 +29,13 @@
 		<!-- Navbar -->
 		<div id="nav-placeholder"></div>
 
-		<div class="container-fluid" style="margin-top:80px">
+		<div class="container-fluid main">
 			<div class="title">
 				<h1>Welcome.</h1>
 				<p>This is my website.</p>
 			</div>
-			<div class="container content-2">
-				<h1>Check out my stuff!</h1><br>
+			<div class="container-fluid content-2">
+				<h1 class="text-center">Check out my stuff!</h1><br>
 
 				<div class="my-stuff">
 					<h3>My Latest Blog: </h3>
