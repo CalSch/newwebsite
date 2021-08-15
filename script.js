@@ -19,3 +19,5 @@ $("#syntax").html(`
 <script src="/highlight/highlight.pack.js"></script>
 <script>hljs.highlightAll();</script>
 `);
+
+$("#cmd-container").hide().load("/cmd-box.html").show();

@@ -59,6 +59,9 @@
 					</p>
 				</div>
 			</div>
+
+			<div id="cmd-container"></div>
+
 		</div>
 
     <script src="/script.js"></script>

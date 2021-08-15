@@ -128,3 +128,25 @@ div.noscript {
 	border-radius: 4px;
 	background-color: rgb(255, 150, 171);
 }
+
+div#cmd-container {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	width: 300px;
+}
+div.cmd-box {
+	background-color: black;
+	padding: 5px;
+	width: 300px;
+	min-height: 300px;
+}
+div.cmd-box div.cmd-text {
+	color: white;
+	font-family: Fira Mono;
+	white-space: pre-line;
+}
+span.cmd-text-input {
+	display: inline-block;
+	width: 100%;
+}
