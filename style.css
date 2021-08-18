@@ -128,3 +128,9 @@ div.noscript {
 	border-radius: 4px;
 	background-color: rgb(255, 150, 171);
 }
+
+.big-text {
+	text-align: center;
+	color: dodgerblue;
+	font-size: 64pt;
+}

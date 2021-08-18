@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Cal's Website > Projects > Events</title>
+
+		<!-- BootStrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+
+		<link rel="shortcut icon" type="image/png" href="/img/logo.png"/>
+
+	</head>
+  <body>
+		
+		<noscript>
+			<div class="noscript">
+				<h3>Warning!</h3>
+				<p>This webpage heavily relies on JavaScript which is disabled, please turn on JavaScript.</p>
+			</div>
+		</noscript>
+
+		<!-- Navbar -->
+		<div id="nav-placeholder"></div>
+
+		<div class="container-fluid main">
+			<div class="title">
+				<h1>Events</h1>
+				<p>Certain events will have a countdown here, these are just important things that i'm doing.</p>
+			</div>
+			<div class="container-fluid">
+        <h1 class="big-text"><span id="days">1</span> day(s), <span id="hours">1</span> hour(s), <span id="mins">1</span> minute(s)</h1>
+        <h1 class="big-text" style="font-size: 36pt;">Until I go to Michigan.</h1>
+        <p class="text-center">At (8/21/2021 12:00 pm)</p>
+			</div>
+		</div>
+
+    <script src="/script.js"></script>
+    <script>
+      // let daysEl=document.getElementById("days");
+      // let hoursEl=document.getElementById("hours");
+      // let minsEl=document.getElementById("mins");
+      let currentDate=Date.now();
+      let events;
+      let currentEvent="michigan";
+
+      
+
+      $.getJSON("schedule.json",function(data) {
+        events=data;
+        let eventDate=new Date(events.events.michigan.start);
+
+        function update() {
+          currentDate=Date.now();
+
+          // daysEl.textContent=Math.floor((eventDate - currentDate) / (1000*60*60*24));
+          $("#days").text(Math.floor((eventDate - currentDate) / (1000*60*60*24)));
+
+          // hoursEl.textContent = 
+          // Math.floor((eventDate - currentDate) / (1000*60*60)) - // Hours
+          // Math.floor((eventDate - currentDate) / (1000*60*60*24))*24; // Rounded hours
+          $("#hours").text(
+            Math.floor((eventDate - currentDate) / (1000*60*60)) - // Hours
+            Math.floor((eventDate - currentDate) / (1000*60*60*24))*24 // Rounded hours
+          )
+
+          // minsEl.textContent =
+          // Math.floor((eventDate - currentDate) / (1000*60)) -
+          // Math.floor((eventDate - currentDate) / (1000*60*60))*60;
+          $("#mins").text(
+            Math.floor((eventDate - currentDate) / (1000*60)) - // Mins
+            Math.floor((eventDate - currentDate) / (1000*60*60))*60 // Rounded Mins
+          );
+
+          console.log("Hours: "+Math.floor((eventDate - currentDate) / (1000*60*60)))
+          console.log("Rounded Hours: "+Math.floor((eventDate - currentDate) / (1000*60*60*24))*24)
+
+          console.log("Mins: "+Math.floor((eventDate - currentDate) / (1000*60)))
+          console.log("Rounded Mins: "+Math.floor((eventDate - currentDate) / (1000*60*60))*60)
+          
+        }
+
+        update();
+        setInterval(update,60000);
+      })
+      
+    </script>
+  </body>
+</html>
