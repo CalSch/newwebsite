@@ -1,15 +1,33 @@
 const navHoverSizeChange=15;
+let navbarExpanded=false;
 
 $("#nav-placeholder").hide(() => {
 	$("#nav-placeholder").load("/nav.html",() => {
 		setTimeout(() => {
+
+
 			$("#nav-placeholder").fadeIn();
 			
-			$("nav").hover(function() {
-				$(this).stop().animate({height: navHoverSizeChange+50});
-			}, function() {
-				$(this).stop().animate({height: 50});
-			});
+			if ($("html").width()>"768px") {
+				console.log("Nav hover effect enabled.\nWidth: "+$("html").width());
+				$("nav").hover(function() {
+					$(this).stop().animate({height: navHoverSizeChange+50});
+				}, function() {
+					$(this).stop().animate({height: 50});
+				});
+			} else {
+				console.log("Nav hover effect disabled.\nWidth: "+$("html").width());
+			}
+
+			/* $(".navbar-toggler").click(function() {
+				navbarExpanded=!navbarExpanded;
+
+				if (navbarExpanded) {
+					$("nav").addClass("nav-expand");
+				} else {
+					$("nav").removeClass("nav-expand");
+				}
+			}) */
 		},10);
 	});
 });

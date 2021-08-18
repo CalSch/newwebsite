@@ -1,11 +1,15 @@
+/* Import fonts */
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 /*@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&display=swap');*/
 
+/* Variables */
 :root {
 	--main-color: #007bff;
+	--nav-gradient: linear-gradient(170deg, rgba(0,123,255,1) 0%, rgba(156,0,230,1) 95%);
 }
 
 body {
@@ -26,9 +30,6 @@ div.title a:visited,
 div.my-stuff a:visited {
 	color: rgb(180, 180, 180);
 	text-decoration: underline;
-}
-a.nav-link {
-	text-decoration: unset;
 }
 
 .c-shadow {
@@ -104,13 +105,16 @@ div.main {
 	margin-top: 80px;
 }
 .c-nav {
-	background: rgb(0,123,255);
-	background: linear-gradient(127deg, rgba(60,174,255,1) 0%, rgba(0,123,255,1) 5%, rgba(0,59,255,1) 84%, rgba(0,2,161,1) 100%);
+	background: var(--main-color);
+	background-image: var(--nav-gradient);
+	background-repeat: no-repeat;
 	border-radius: 0px 0px 10px 10px;
-	height: 50px;
 }
+
+
 .nav-link {
 	color: rgba(255,255,255,1) !important;
+	text-decoration: unset;
 }
 .nav-link:hover {
 	text-shadow: 0px 0px 2px white;
@@ -133,4 +137,11 @@ div.noscript {
 	text-align: center;
 	color: dodgerblue;
 	font-size: 64pt;
+}
+
+/* Media Queries */
+@media screen and (min-width: 768px) {
+	.c-nav {
+		height: 50px;
+	}
 }
