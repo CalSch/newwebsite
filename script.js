@@ -8,7 +8,7 @@ $("#nav-placeholder").hide(() => {
 
 			$("#nav-placeholder").fadeIn();
 			
-			if ($("html").width()>"768px") {
+			if ($("html").width()>"768") {
 				console.log("Nav hover effect enabled.\nWidth: "+$("html").width());
 				$("nav").hover(function() {
 					$(this).stop().animate({height: navHoverSizeChange+50});
