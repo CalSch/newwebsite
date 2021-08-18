@@ -95,6 +95,12 @@ div.my-stuff {
 	width: 100%;
 	color: white;
 	padding: 10px;
+	border-radius: 15px;
+	box-shadow: 5px 5px 0px 0px white, 5px 5px 0px 2px grey;
+	animation: my-stuff-hover-off 0.25s ease forwards;
+}
+div.my-stuff:hover {
+	animation: my-stuff-hover 0.25s ease forwards;
 }
 
 div.content-2 {
@@ -145,4 +151,14 @@ div.noscript {
 	.c-nav {
 		height: 50px;
 	}
+}
+
+/* Animations */
+@keyframes my-stuff-hover {
+	0%   {box-shadow: 5px 5px 0px 0px white, 5px 5px 0px 2px grey;}
+	100% {box-shadow: 10px 10px 0px 0px white, 10px 10px 0px 2px grey;}
+}
+@keyframes my-stuff-hover-off {
+	0%   {box-shadow: 10px 10px 0px 0px white, 10px 10px 0px 2px grey;}
+	100% {box-shadow: 5px 5px 0px 0px white, 5px 5px 0px 2px grey;}
 }
