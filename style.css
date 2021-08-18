@@ -9,7 +9,9 @@
 /* Variables */
 :root {
 	--main-color: #007bff;
-	--nav-gradient: linear-gradient(170deg, rgba(0,123,255,1) 0%, rgba(156,0,230,1) 95%);
+	--nav-gradient: linear-gradient(170deg, rgba(0, 123, 255, 1) 0%, rgba(156, 0, 230, 1) 95%);
+	--nav-gradient-webkit: -webkit-linear-gradient(170deg, rgba(0, 123, 255, 1) 0%, rgba(156, 0, 230, 1) 95%);
+	--nav-gradient-moz: -moz-linear-gradient(170deg, rgba(0, 123, 255, 1) 0%, rgba(156, 0, 230, 1) 95%);
 }
 
 body {
@@ -25,6 +27,7 @@ a {
 	color: rgb(253, 23, 61);
 	text-decoration: underline;
 }
+
 a:visited {
 	color: rgb(182, 2, 92);
 	text-decoration: underline;
@@ -41,14 +44,16 @@ div.my-stuff a:visited {
 	text-decoration: underline;
 }*/
 
-code, pre {
+code,
+pre {
 	padding: 3px;
 	font-size: inherit;
 	background-color: rgba(0, 0, 0, 0.051);
 	border-radius: 4px;
 }
 
-h1,h3 {
+h1,
+h3 {
 	font-family: "Raleway", sans-serif;
 }
 
@@ -86,7 +91,9 @@ kbd {
 	box-shadow: 1px 1px #40474e, 2px 2px #40474e;
 }
 
-code, pre, kbd {
+code,
+pre,
+kbd {
 	font-family: Fira Mono;
 }
 
@@ -99,6 +106,7 @@ div.my-stuff {
 	box-shadow: 5px 5px 0px 0px white, 5px 5px 0px 2px grey;
 	animation: my-stuff-hover-off 0.25s ease forwards;
 }
+
 div.my-stuff:hover {
 	animation: my-stuff-hover 0.25s ease forwards;
 }
@@ -107,27 +115,32 @@ div.content-2 {
 	margin-bottom: 100px;
 	padding: 0px;
 }
+
 div.main {
 	margin-top: 80px;
 }
+
 .c-nav {
 	background: var(--main-color);
-	background-image: var(--nav-gradient);
-	background-repeat: no-repeat;
+	background: var(--nav-gradient-moz);
+	background: var(--nav-gradient-webkit);
+	background: var(--nav-gradient);
 	border-radius: 0px 0px 10px 10px;
 	box-shadow: 0px 5px 20px 4px rgba(0, 0, 0, 0.397);
 }
 
 
 .nav-link {
-	color: rgba(255,255,255,1) !important;
+	color: rgba(255, 255, 255, 1) !important;
 	text-decoration: unset;
 }
+
 .nav-link:hover {
 	text-shadow: 0px 0px 2px white;
 	background-color: rgba(0, 0, 0, 0.13);
 	border-radius: 5px;
 }
+
 .navbar-toggler {
 	border-color: rgba(0, 0, 0, 0) !important;
 }
@@ -155,10 +168,21 @@ div.noscript {
 
 /* Animations */
 @keyframes my-stuff-hover {
-	0%   {box-shadow: 5px 5px 0px 0px white, 5px 5px 0px 2px grey;}
-	100% {box-shadow: 10px 10px 0px 0px white, 10px 10px 0px 2px grey;}
+	0% {
+		box-shadow: 5px 5px 0px 0px white, 5px 5px 0px 2px grey;
+	}
+
+	100% {
+		box-shadow: 10px 10px 0px 0px white, 10px 10px 0px 2px grey;
+	}
 }
+
 @keyframes my-stuff-hover-off {
-	0%   {box-shadow: 10px 10px 0px 0px white, 10px 10px 0px 2px grey;}
-	100% {box-shadow: 5px 5px 0px 0px white, 5px 5px 0px 2px grey;}
+	0% {
+		box-shadow: 10px 10px 0px 0px white, 10px 10px 0px 2px grey;
+	}
+
+	100% {
+		box-shadow: 5px 5px 0px 0px white, 5px 5px 0px 2px grey;
+	}
 }
