@@ -36,24 +36,49 @@
 				<p>Page Description</p>
 			</div>
 			<div class="container">
-        <h1 class="big-text"><span id="days">1</span> day(s)</h1>
-        <h3 class="big-text" style="font-size: 36pt;">Until I go to Michigan.</h3>
+        <h1 class="big-text"><span id="days">1</span> day(s), <span id="hours">1</span> hour(s), <span id="mins">1</span> minute(s)</h1>
+        <h1 class="big-text" style="font-size: 36pt;">Until I go to Michigan.</h1>
+        <p class="text-center">At (8/21/2021 12:00 pm)</p>
 			</div>
 		</div>
 
     <script src="/script.js"></script>
     <script>
       let daysEl=document.getElementById("days");
+      let hoursEl=document.getElementById("hours");
+      let minsEl=document.getElementById("mins");
       let currentDate=Date.now();
       let events;
       let currentEvent="michigan";
+
+      
+
       $.getJSON("schedule.json",function(data) {
         events=data;
         let eventDate=new Date(events.events.michigan.start);
 
-        setInterval(function(){
-          daysEl.textContent=Math.floor((eventDate - currentDate) / (1000*60*60*24))
-        },1000);
+        function update() {
+          currentDate=Date.now();
+
+          daysEl.textContent=Math.floor((eventDate - currentDate) / (1000*60*60*24));
+
+          hoursEl.textContent = 
+          Math.floor((eventDate - currentDate) / (1000*60*60)) - // Hours
+          Math.floor((eventDate - currentDate) / (1000*60*60*24))*24; // Rounded hours
+
+          minsEl.textContent=Math.floor((eventDate - currentDate) / (1000*60)) -
+          Math.floor((eventDate - currentDate) / (1000*60*60))*60;
+
+          console.log("Hours: "+Math.floor((eventDate - currentDate) / (1000*60*60)))
+          console.log("Rounded Hours: "+Math.floor((eventDate - currentDate) / (1000*60*60*24))*24)
+
+          console.log("Mins: "+Math.floor((eventDate - currentDate) / (1000*60)))
+          console.log("Rounded Mins: "+Math.floor((eventDate - currentDate) / (1000*60*60))*60)
+          
+        }
+
+        update();
+        setInterval(update,60000);
       })
       
     </script>
