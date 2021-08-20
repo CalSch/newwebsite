@@ -35,16 +35,17 @@
 				<p>This is my website.</p>
 			</div>
 			<div class="container-fluid content-2">
+				
 				<h1 class="text-center">Check out my stuff!</h1><br>
 
-				<div class="my-stuff">
+				<div class="my-stuff left-circle">
 					<h3>My Latest Blog: </h3>
 					<p><a href="/blog/1-nodejs-webserver.html">How to make a webserver in Node.js</a>
 						<a href="/blog/">More </a>
 					</p>
 				</div>
 				<br>
-				<div class="my-stuff">
+				<div class="my-stuff right-circle">
 					<h3>My Pictures:</h3>
 					<p>Internet Icon: <img src="/img/WebIcon.svg" width="30px" /><br>
 					Website Logo: <img src="/img/logo.svg" width="30px" /><br>
@@ -52,7 +53,7 @@
 					</p>
 				</div>
 				<br>
-				<div class="my-stuff">
+				<div class="my-stuff left-circle">
 					<h3>My Projects:</h3>
 					<p><a href="/projects/wsclient.html">WSClient</a><br>
 						<a href="/projects/">More</a>
