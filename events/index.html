@@ -51,8 +51,8 @@
           <span class="num" id="hours">1</span> hour(s),
           <span class="num" id="mins">1</span> minute(s).
         </h1>
-        <h1 class="big-text" style="font-size: 36pt;">Until I go to Michigan.</h1>
-        <p class="text-center">At (8/21/2021 12:00 pm)</p>
+        <h1 class="big-text" style="font-size: 36pt;">Until <span id="name"></span>.</h1>
+        <p class="text-center">On <span id="date"></span></p>
 			</div>
 		</div>
 
@@ -69,9 +69,12 @@
 
       $.getJSON("schedule.json",function(data) {
         events=data;
-        let eventDate=new Date(events.events.michigan.start);
+        let eventDate=new Date(events.events[currentEvent].start);
 
         function update() {
+					alert(events.events+currentEvent)
+					$("#name").text(events.events[currentEvent].name);
+					$("#date").text(events.events[currentEvent].start);
           currentDate=Date.now();
 
           // daysEl.textContent=Math.floor((eventDate - currentDate) / (1000*60*60*24));
@@ -102,7 +105,13 @@
         }
 
         update();
-        setInterval(update,60000);
+        setInterval(function () {
+        	try {
+						update();
+					} catch(e) {
+						alert(e);
+					}
+        },60000);
       })
       
     </script>
