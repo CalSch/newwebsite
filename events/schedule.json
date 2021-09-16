@@ -4,5 +4,9 @@
       "name": "Vacation to Michigan",
       "start": "8/21/2021 12:00 PM"
     }
+		"school": {
+			"name": "school starts",
+			"start": "9/8/2021"
+		}
   }
 }
