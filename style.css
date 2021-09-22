@@ -12,11 +12,14 @@
 	--nav-gradient: linear-gradient(170deg, rgba(0, 123, 255, 1) 0%, rgba(156, 0, 230, 1) 95%);
 	--nav-gradient-webkit: -webkit-linear-gradient(170deg, rgba(0, 123, 255, 1) 0%, rgba(156, 0, 230, 1) 95%);
 	--nav-gradient-moz: -moz-linear-gradient(170deg, rgba(0, 123, 255, 1) 0%, rgba(156, 0, 230, 1) 95%);
+  --my-stuff-offset: -100px;
 }
 
 body {
 	font-family: 'Nunito', sans-serif;
   background-color: rgb(241, 241, 241);
+  /* background-image: url('/img/pattern.png');
+  background-size: 10px; */
 }
 
 /* a {
@@ -80,7 +83,7 @@ div.content {
   background: linear-gradient(175deg, rgba(255,255,255,1) 0%, rgba(239,248,255,1) 100%);
 
 	border-radius: 10px;
-  border: 1.5px rgb(192, 212, 218) solid;
+  border: 1px rgb(192, 212, 218) solid;
 	font-size: 18pt;
 
   padding: 30px !important;
@@ -88,7 +91,7 @@ div.content {
 
   margin-top: 50px;
 	margin-bottom: 100px;
-  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.096);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.096);
 
   /* max-width: 800px; */
 }
@@ -118,7 +121,7 @@ div.my-stuff {
 	padding: 70px;
 	padding-top: 80px;
 	border-radius: 15px;
-	box-shadow: 5px 5px 0px 0px white, 5px 5px 0px 2px grey;
+	box-shadow: 5px 5px 0px 0px white, 5px 5px 0px 2px rgb(12, 11, 11);
 	animation: my-stuff-hover-off 0.25s ease forwards;
 }
 
@@ -137,6 +140,13 @@ div.left-circle {
 	background: -moz-linear-gradient(170deg, rgba(45,230,0,1) 0%, rgba(0,214,251,1) 100%);
 	background: -webkit-linear-gradient(170deg, rgba(45,230,0,1) 0%, rgba(0,214,251,1) 100%);
 	background: linear-gradient(170deg, rgba(45,230,0,1) 0%, rgba(0,214,251,1) 100%);
+
+  background-size: 200%;
+  transition: background-position 0.5s ease;
+}
+div.left-circle:hover {
+  background-position: 100% 100%;
+  transition: background-position 0.5s ease;
 }
 div.right-circle {
 	position: relative;
@@ -148,6 +158,13 @@ div.right-circle {
 	background: -moz-linear-gradient(170deg, rgba(230,183,0,1) 0%, rgba(251,0,159,1) 100%);
 	background: -webkit-linear-gradient(170deg, rgba(230,183,0,1) 0%, rgba(251,0,159,1) 100%);
 	background: linear-gradient(170deg, rgba(230,183,0,1) 0%, rgba(251,0,159,1) 100%);
+
+  background-size: 200%;
+  transition: background-position 0.5s ease;
+}
+div.right-circle:hover {
+  background-position: 100% 100%;
+  transition: background-position 0.5s ease;
 }
 
 div.content-2 {
@@ -210,6 +227,12 @@ img:hover {
 img.default {
   border-radius: 0px;
   box-shadow: 0px 0px rgba(0, 0, 0, 0);
+}
+
+img.icon {
+  width: 20px;
+  height:20px;
+  border-radius: 50%;
 }
 
 /* Media Queries */

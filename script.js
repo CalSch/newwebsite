@@ -1,5 +1,8 @@
+const initialTitle=document.title;
 const navHoverSizeChange=15;
 let navbarExpanded=false;
+let titleState=true;
+let focused=true;
 
 $("#nav-placeholder").hide(() => {
 	$("#nav-placeholder").load("/nav.html",() => {
@@ -37,3 +40,18 @@ $("#syntax").html(`
 <script src="/highlight/highlight.pack.js"></script>
 <script>hljs.highlightAll();</script>
 `);
+
+window.onfocus = function() {
+  focused = true;
+  document.title=initialTitle;
+};
+window.onblur = function() {
+  focused = false;
+};
+
+setInterval(function () {
+  if (!focused) {
+    titleState=!titleState;
+    document.title=titleState ? initialTitle : "Come back!";
+  }
+},2000);
